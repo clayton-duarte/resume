@@ -1,8 +1,18 @@
 import React from 'react';
 import App, { Container } from 'next/app';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import defaultTheme from '../theme';
+
+const GlobalStyle = createGlobalStyle`
+body {
+  font-family: ${props => props.theme.family};
+  background-color: ${props => props.theme.bg};
+  font-size: ${props => props.theme.size};
+  color: ${props => props.theme.black};
+  margin: 0;
+}
+`;
 
 export default class extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -20,9 +30,12 @@ export default class extends App {
 
     return (
       <ThemeProvider theme={defaultTheme}>
-        <Container>
-          <Component {...pageProps}/>
-        </Container>
+        <>
+          <Container>
+            <Component {...pageProps} />
+          </Container>
+          <GlobalStyle />
+        </>
       </ThemeProvider>
     )
   }
