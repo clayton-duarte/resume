@@ -159,7 +159,7 @@ var _jsxFileName = "/home/clayton/Documents/resume/components/Summary.js";
       lineNumber: 7
     },
     __self: this
-  }, "Summary"));
+  }, "test"));
 });
 
 /***/ }),
