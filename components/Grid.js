@@ -26,9 +26,9 @@ flex-grow: 1;
 export const Col = styled.div`
 ${props => commonStyles(props)};
 margin: ${props => props.theme.gut};
+flex-grow: ${props => props.grow || 1};
 justify-content: stretch;
 flex-basis: 0;
-flex-grow: 1;
 `;
 
 export const Container = props => <Box container {...props} />;

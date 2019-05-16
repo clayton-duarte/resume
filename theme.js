@@ -9,9 +9,9 @@ const theme = {
   shadow: "rgba(0,0,0,0.25)",
   bg: "#FEFEFE",
   // SHAPES
-  size: "16px",
+  rem: "16px",
   gut: ".5rem",
-  margin: ".5rem",
+  margin: ".25rem 0",
   padding: ".75rem 1rem",
   radius: ".25rem",
   // BREAKPOINTS

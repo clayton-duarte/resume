@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { Container, Row, Col } from '../components/Grid';
 import Summary from '../components/Summary';

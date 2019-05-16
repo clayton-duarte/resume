@@ -1,9 +1,12 @@
 import React from 'react';
 
-import Text from './Text';
+import { Title, SubTitle, Text, Label } from './Text';
 
 export default () => (
   <>
-    <Text title>Summary</Text>
+    <Title>Clayton Duarte</Title>
+    <SubTitle>SubTitle</SubTitle>
+    <Text>Text <strong>Strong</strong></Text>
+    <Label>Label</Label>
   </>
 );
