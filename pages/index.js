@@ -1,14 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Container, Row, Col } from '../components/Grid';
+import Summary from '../components/Summary';
 import Card from '../components/Card';
-import Box from '../components/Box';
-import Row from '../components/Row';
-import Col from '../components/Col';
 
 const Home = () => (
   <>
-    <Box>
+    <Container>
+      <Row>
+        <Col>
+          <Summary />
+        </Col>
+      </Row>
+    </Container>
+    <Container>
       <Row bp="sm">
         <Col>
           <Card>Card</Card>
@@ -33,7 +39,7 @@ const Home = () => (
           <Card>Card</Card>
         </Col>
       </Row>
-    </Box>
+    </Container>
   </>
 );
 
