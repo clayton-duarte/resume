@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { Title, SubTitle, Text, Label } from './Text';
+import { useStateValue } from '../state';
 
-export default () => (
-  <>
-    <Title>Clayton Duarte</Title>
-    <SubTitle>SubTitle</SubTitle>
-    <Text>Text <strong>Strong</strong></Text>
-    <Label>Label</Label>
-  </>
-);
+const Summary = () => {
+  const [{ profile }] = useStateValue();
+
+  return (
+    <>
+      <Title>{profile.firstName} {profile.lastName}</Title>
+      <SubTitle>{profile.headline}</SubTitle>
+      <Text>{profile.locationName}</Text>
+      <Label>{profile.summary}</Label>
+    </>
+  );
+}
+
+export default memo(Summary);

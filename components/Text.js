@@ -23,8 +23,8 @@ font-size: 1.2rem;
 
 export const Label = styled.label`
 ${props => commonStyles(props)};
-font-size: .8rem;
 font-weight: bold;
+font-size: .8rem;
 `;
 
 export default ({ title, subTitle, label, ...props }) => {

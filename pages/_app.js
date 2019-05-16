@@ -2,6 +2,9 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
+import initialState from '../state/initialState';
+import { StateProvider } from '../state';
+import reducer from '../state/reducer';
 import defaultTheme from '../theme';
 
 const GlobalStyle = createGlobalStyle`
@@ -25,6 +28,8 @@ export default class extends App {
     return pageProps;
   }
 
+  state = {};
+
   render() {
     const { Component, pageProps } = this.props;
 
@@ -32,7 +37,9 @@ export default class extends App {
       <ThemeProvider theme={defaultTheme}>
         <>
           <Container>
-            <Component {...pageProps} />
+            <StateProvider initialState={initialState} reducer={reducer}>
+              <Component {...pageProps} />
+            </StateProvider>
           </Container>
           <GlobalStyle />
         </>
