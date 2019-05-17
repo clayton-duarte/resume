@@ -5,18 +5,15 @@ import WorkExperience from '../components/WorkExperience';
 import Education from '../components/Education';
 import Summary from '../components/Summary';
 import Contact from '../components/Contact';
-import Card from '../components/Card';
-
-import { useStateValue } from '../state';
 
 const Home = () => (
   <>
     <Container>
-      <Row>
+      <Row bp="sm">
         <Col>
           <Summary />
         </Col>
-        <Col css="text-align: right">
+        <Col css={`@media all and (min-width: ${props => props.theme.bp.sm}){text-align: right}`}>
           <Contact />
         </Col>
       </Row>

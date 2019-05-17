@@ -17,7 +17,7 @@ const WorkExperience = () => {
       {positionView && positionView.elements.map((position, index) => (
         <Card css="margin-bottom: 1rem" key={`job-item-${index}`}>
           <Row>
-            <Col grow="0">
+            <Col grow="0" css="justify-content: center">
               <TimePeriod timePeriod={position.timePeriod} />
             </Col>
             <Col css="justify-content: center">

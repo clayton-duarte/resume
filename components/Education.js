@@ -17,7 +17,7 @@ const Education = () => {
       {educationView && educationView.elements.map((education, index) => (
         <Card css="margin-bottom: 1rem" key={`education-item-${index}`}>
           <Row>
-            <Col grow="0">
+            <Col grow="0" css="justify-content: center">
               <TimePeriod timePeriod={education.timePeriod} />
             </Col>
             <Col css="justify-content: center">

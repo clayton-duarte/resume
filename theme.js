@@ -16,10 +16,10 @@ const theme = {
   radius: ".25rem",
   // BREAKPOINTS
   bp: {
-    xs: "0px",
+    xs: "425px",
     sm: "768px",
-    md: "992px",
-    lg: "1200px",
+    md: "1024px",
+    lg: "1280px",
   }
 };
 
