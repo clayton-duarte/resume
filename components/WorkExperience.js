@@ -1,0 +1,38 @@
+import React, { memo } from 'react';
+
+import { Row, Col } from './Grid';
+import { SubTitle, Text } from './Text';
+import TimePeriod from './TimePeriod';
+import Card from './Card';
+
+import { useStateValue } from '../state';
+
+const WorkExperience = () => {
+  const [{ positionView }] = useStateValue();
+  console.log(positionView)
+  return (
+    <>
+      <SubTitle>Work Experience</SubTitle>
+      <br />
+      {positionView && positionView.elements.map((position, index) => (
+        <Card css="margin-bottom: 1rem" key={`job-item-${index}`}>
+          <Row>
+            <Col grow="0">
+              <TimePeriod timePeriod={position.timePeriod} />
+            </Col>
+            <Col css="justify-content: center">
+              <Text>
+                <strong>
+                  {position.title}
+                </strong>
+              </Text>
+              <Text>{position.companyName} {position.locationName}</Text>
+            </Col>
+          </Row>
+        </Card>
+      ))}
+    </>
+  );
+}
+
+export default memo(WorkExperience);

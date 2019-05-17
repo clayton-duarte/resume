@@ -5,13 +5,11 @@ import { useStateValue } from '../state';
 
 const Summary = () => {
   const [{ profile }] = useStateValue();
-
+  console.log(profile)
   return (
     <>
       <Title>{profile.firstName} {profile.lastName}</Title>
       <SubTitle>{profile.headline}</SubTitle>
-      <Text>{profile.locationName}</Text>
-      <Label>{profile.summary}</Label>
     </>
   );
 }
