@@ -3,6 +3,7 @@ import React, { memo } from 'react';
 import { Container, Row, Col } from '../components/Grid';
 import VolunteerExperience from '../components/VolunteerExperience';
 import WorkExperience from '../components/WorkExperience';
+import ThemeSelector from '../components/ThemeSelector';
 import Education from '../components/Education';
 import TagCloud from '../components/TagCloud';
 import Summary from '../components/Summary';
@@ -16,6 +17,8 @@ const Home = () => {
 
   return (
     <>
+      <ThemeSelector />
+
       <Container>
         <Row bp="sm" css={`@media all and (min-width: ${({ theme }) => theme.bp.sm}) {align-items:flex-end;}`}>
           <Col>

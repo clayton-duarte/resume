@@ -2,8 +2,6 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-import { Title, SubTitle, Text } from './Text';
-
 const Icon = styled.img`
 filter: drop-shadow(0 0 .25rem ${props => props.theme.shadow});
 max-height: 2rem;

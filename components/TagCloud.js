@@ -7,6 +7,7 @@ import { SubTitle, Text, Label } from './Text';
 const Tag = styled.span`
 box-shadow: 0 0 .25rem 0 ${props => props.theme.shadow};
 border-radius: ${props => props.theme.radius};
+background: ${props => props.theme.white};
 padding: ${props => props.theme.padding};
 margin: ${props => props.theme.gut};
 border-radius: 3rem;

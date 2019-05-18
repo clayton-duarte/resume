@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import styled from 'styled-components';
 
 import { Row, Col } from './Grid';
 import { SubTitle, Text, Label } from './Text';
@@ -6,6 +7,13 @@ import TimePeriod from './TimePeriod';
 import Card from './Card';
 
 import { useStateValue } from '../state';
+
+const ResponsiveCol = styled(Col)`
+justify-content: center;
+@media all and (max-width: ${({ theme }) => theme.bp.xs}) {
+  text-align: center;
+}
+`;
 
 const WorkExperience = () => {
   const [{ positionGroupView }] = useStateValue();
@@ -16,16 +24,19 @@ const WorkExperience = () => {
       <br />
       {positionGroupView && positionGroupView.elements.map((position, index) => (
         <Card css="margin-bottom: 1rem" key={`job-item-${index}`}>
-          <Row>
+          <Row bp="xs">
             <Col grow="0" css="justify-content: center">
               <TimePeriod timePeriod={position.timePeriod} />
             </Col>
-            <Col css="justify-content: center">
-            <Text>{position.name}</Text>
-            {position.positions.map((role) => (
-              <Text><strong>{role.title}</strong></Text>
-            ))}
-            </Col>
+            <ResponsiveCol>
+              {position.positions.map((role) => (
+                <>
+                  {role.locationName && <Label>{role.locationName}</Label>}
+                  <Text><strong>{role.title}</strong></Text>
+                </>
+              ))}
+              <Text>{position.name}</Text>
+            </ResponsiveCol>
           </Row>
         </Card>
       ))}

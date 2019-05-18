@@ -5,9 +5,9 @@ const theme = {
   primary: "#999999",
   secondary: "#666666",
   black: "#333333",
-  white: "#FFFFFF",
+  white: "#fefefe",
   shadow: "rgba(0,0,0,0.25)",
-  bg: "#FEFEFE",
+  bg: "#fafafa",
   // SHAPES
   rem: "16px",
   gut: ".5rem",
@@ -16,7 +16,7 @@ const theme = {
   radius: ".25rem",
   // BREAKPOINTS
   bp: {
-    xs: "425px",
+    xs: "420px",
     sm: "768px",
     md: "1024px",
     lg: "1280px",

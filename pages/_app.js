@@ -2,8 +2,8 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
+import { StateProvider, useStateValue } from '../state';
 import initialState from '../state/initialState';
-import { StateProvider } from '../state';
 import reducer from '../state/reducer';
 import defaultTheme from '../theme';
 
@@ -33,6 +33,16 @@ body {
 }
 `;
 
+const ThemedApplication = ({ children }) => {
+  const [{ theme }] = useStateValue();
+
+  return (
+    <ThemeProvider theme={theme}>
+      {children}
+    </ThemeProvider>
+  )
+}
+
 export default class extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
@@ -50,16 +60,16 @@ export default class extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <ThemeProvider theme={defaultTheme}>
-        <>
-          <Container>
-            <StateProvider initialState={initialState} reducer={reducer}>
+      <StateProvider initialState={{ theme: defaultTheme, ...initialState }} reducer={reducer}>
+        <ThemedApplication>
+          <>
+            <Container>
               <Component {...pageProps} />
-            </StateProvider>
-          </Container>
-          <GlobalStyle />
-        </>
-      </ThemeProvider>
+            </Container>
+            <GlobalStyle />
+          </>
+        </ThemedApplication>
+      </StateProvider>
     )
   }
 }
