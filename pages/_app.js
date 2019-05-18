@@ -14,6 +14,9 @@ body {
   font-size: ${props => props.theme.rem};
   color: ${props => props.theme.black};
   margin: 0;
+  * {
+    transition: ease .3s;
+  }
   a {
     color: ${props => props.theme.primary};
     margin: ${props => props.theme.margin};

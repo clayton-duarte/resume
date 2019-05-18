@@ -7,9 +7,10 @@ const size = "6rem";
 
 const Corner = styled.aside`
 filter: drop-shadow(0 0 .25rem ${props => props.theme.shadow});
-border-top: ${size} solid ${props => props.theme.secondary};
+border-top: ${size} solid ${props => props.theme.primary};
 border-left: ${size} solid transparent;
 position: fixed;
+cursor: pointer;
 height: 0;
 width: 0;
 right: 0;
@@ -18,6 +19,7 @@ top: 0;
 
 const Icon = styled.img`
 position: fixed;
+cursor: pointer;
 height: auto;
 right: .25rem;
 width: 3rem;

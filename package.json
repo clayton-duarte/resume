@@ -4,7 +4,7 @@
     "dev": "next",
     "build": "npm run build:clean && next build",
     "build:clean": "rm -rf docs .next",
-    "export": "next export -o docs && git add docs",
+    "export": "next export -o docs && touch docs/.nojekyll && git add docs",
     "start": "next start"
   },
   "dependencies": {
