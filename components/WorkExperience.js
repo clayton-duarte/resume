@@ -29,11 +29,11 @@ const WorkExperience = () => {
               <TimePeriod timePeriod={position.timePeriod} />
             </Col>
             <ResponsiveCol>
-              {position.positions.map((role) => (
-                <>
+              {position.positions.map((role, index) => (
+                <div key={`job-title-${index}`}>
                   {role.locationName && <Label>{role.locationName}</Label>}
                   <Text><strong>{role.title}</strong></Text>
-                </>
+                </div>
               ))}
               <Text>{position.name}</Text>
             </ResponsiveCol>

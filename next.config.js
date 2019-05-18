@@ -1,12 +1,11 @@
 module.exports = {
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/resume' : '',
   exportPathMap: async () => {
-    // Exports listed pages
     return {
       '/': { page: '/' },
     };
   },
   webpack: config => {
-    // Fixes npm packages that depend on `fs` module
     config.node = {
       fs: 'empty'
     };
