@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 
 import { Container, Row, Col } from '../components/Grid';
+import VolunteerExperience from '../components/VolunteerExperience';
 import WorkExperience from '../components/WorkExperience';
 import Education from '../components/Education';
 import TagCloud from '../components/TagCloud';
@@ -34,6 +35,7 @@ const Home = () => {
 
           <Col>
             <Education />
+            <VolunteerExperience />
           </Col>
         </Row>
       </Container>

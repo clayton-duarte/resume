@@ -146,10 +146,6 @@
         },
         "entityUrn": "urn:li:fs_positionGroup:(ACoAAB4iCBcBjPvsAX_8OYikYWQ26WxcHIMhKFE,1)",
         "timePeriod": {
-          "endDate": {
-            "month": 3,
-            "year": 2019
-          },
           "startDate": {
             "month": 7,
             "year": 2018
@@ -161,10 +157,6 @@
             "entityUrn": "urn:li:fs_position:(ACoAAB4iCBcBjPvsAX_8OYikYWQ26WxcHIMhKFE,1337659505)",
             "companyName": "Mooven Consulting",
             "timePeriod": {
-              "endDate": {
-                "month": 3,
-                "year": 2019
-              },
               "startDate": {
                 "month": 11,
                 "year": 2018
@@ -1245,7 +1237,7 @@
         "language": "pt"
       }
     ],
-    "locationName": "São Paulo, São Paulo, Brazil",
+    "locationName": "São Paulo, SP, Brazil",
     "student": false,
     "versionTag": "2104625384",
     "elt": false,
@@ -1483,7 +1475,7 @@
     "profileId": "ACoAAB4iCBcBjPvsAX_8OYikYWQ26WxcHIMhKFE",
     "elements": [
       {
-        "role": "Mentor",
+        "role": "React Mentor",
         "entityUrn": "urn:li:fs_volunteerExperience:(ACoAAB4iCBcBjPvsAX_8OYikYWQ26WxcHIMhKFE,497420832)",
         "companyName": "Codenation",
         "timePeriod": {

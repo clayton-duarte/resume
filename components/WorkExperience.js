@@ -8,26 +8,23 @@ import Card from './Card';
 import { useStateValue } from '../state';
 
 const WorkExperience = () => {
-  const [{ positionView }] = useStateValue();
+  const [{ positionGroupView }] = useStateValue();
 
   return (
     <>
-      <SubTitle>> Work Experience</SubTitle>
+      <SubTitle>> Recent Work Experience</SubTitle>
       <br />
-      {positionView && positionView.elements.map((position, index) => (
+      {positionGroupView && positionGroupView.elements.map((position, index) => (
         <Card css="margin-bottom: 1rem" key={`job-item-${index}`}>
           <Row>
             <Col grow="0" css="justify-content: center">
               <TimePeriod timePeriod={position.timePeriod} />
             </Col>
             <Col css="justify-content: center">
-              <Label>{position.locationName}</Label>
-              <Text>
-                <strong>
-                  {position.title}
-                </strong>
-              </Text>
-              <Text>{position.companyName}</Text>
+            <Text>{position.name}</Text>
+            {position.positions.map((role) => (
+              <Text><strong>{role.title}</strong></Text>
+            ))}
             </Col>
           </Row>
         </Card>
