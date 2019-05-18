@@ -8,21 +8,25 @@ margin: ${theme.margin}
 
 export const Text = styled.p`
 ${props => commonStyles(props)};
+color: ${props => props.theme.black};
 font-size: 1rem;
 `;
 
 export const Title = styled.h1`
 ${props => commonStyles(props)};
+color: ${props => props.theme.black};
 font-size: 1.5rem;
 `;
 
 export const SubTitle = styled.h2`
 ${props => commonStyles(props)};
+color: ${props => props.theme.primary};
 font-size: 1.2rem;
 `;
 
 export const Label = styled.label`
 ${props => commonStyles(props)};
+color: ${props => props.theme.secondary};
 font-weight: bold;
 font-size: .8rem;
 `;

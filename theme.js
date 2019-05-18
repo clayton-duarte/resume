@@ -2,9 +2,9 @@ const theme = {
   // FONT
   family: "Courier",
   // COLORS
-  primary: "tomato",
+  primary: "#999999",
   secondary: "#666666",
-  black: "#222222",
+  black: "#333333",
   white: "#FFFFFF",
   shadow: "rgba(0,0,0,0.25)",
   bg: "#FEFEFE",

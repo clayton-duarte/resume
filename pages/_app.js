@@ -14,6 +14,22 @@ body {
   font-size: ${props => props.theme.rem};
   color: ${props => props.theme.black};
   margin: 0;
+  a {
+    color: ${props => props.theme.primary};
+    margin: ${props => props.theme.margin};
+  }
+  hr {
+    border: unset;
+    background: linear-gradient(
+      to right,
+      transparent,
+      ${props => props.theme.shadow},
+      ${props => props.theme.shadow},
+      transparent
+    );
+    margin: ${props => props.theme.gut}; 1rem;
+    height: 1px;
+  }
 }
 `;
 

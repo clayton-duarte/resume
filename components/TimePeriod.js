@@ -4,21 +4,30 @@ import styled from 'styled-components';
 import { Text } from './Text';
 
 const Date = styled(Text)`
-color: ${props => props.theme.secondary};
+color: ${props => props.theme.primary};
+margin: .25rem 1rem 0 0;
 text-align: center;
-font-size: 1.75rem;
+font-size: 1.2rem;
 &:first-child {
-  border-bottom: 1px solid ${props => props.theme.shadow};
+  border-bottom: 2px solid ${props => props.theme.shadow};
 }
 `;
 
-const TimePeriod = ({ timePeriod }) => {
-  return (
-    <>
-      <Date>{timePeriod.endDate ? timePeriod.endDate.year : 'now'}</Date>
-      <Date>{timePeriod.startDate.year}</Date>
-    </>
-  );
-};
+const months = [, 'jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'oct', 'sep', 'nov', 'dec'];
+
+const formatDate = (date) => {
+  if (date) {
+    if (date.month) return `${months[date.month]}/${date.year}`;
+    return date.year;
+  }
+  return 'present';
+}
+
+const TimePeriod = ({ timePeriod }) => (
+  <>
+    <Date>{formatDate(timePeriod.endDate)}</Date>
+    <Date>{formatDate(timePeriod.startDate)}</Date>
+  </>
+);
 
 export default TimePeriod;

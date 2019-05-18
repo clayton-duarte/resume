@@ -17,17 +17,15 @@ export const Row = styled.div`
 ${props => commonStyles(props)};
 padding: 0 ${props => props.theme.gut};
 flex-wrap: wrap;
-flex-grow: 1;
-@media all and (min-width: ${({ theme, bp }) => theme.bp[bp || 'xs']}) {
+@media all and (min-width: ${({ theme, bp }) => bp ? theme.bp[bp] : 0}) {
   flex-direction: row;
 }
 `;
 
 export const Col = styled.div`
 ${props => commonStyles(props)};
-margin: ${props => props.theme.gut};
 flex-grow: ${props => props.grow || 1};
-justify-content: stretch;
+margin: ${props => props.theme.gut};
 flex-basis: 0;
 `;
 

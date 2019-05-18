@@ -1362,17 +1362,17 @@
     "elements": [
       {
         "entityUrn": "urn:li:fs_language:(ACoAAB4iCBcBjPvsAX_8OYikYWQ26WxcHIMhKFE,23124322)",
-        "name": "Inglês",
+        "name": "English",
         "proficiency": "FULL_PROFESSIONAL"
       },
       {
         "entityUrn": "urn:li:fs_language:(ACoAAB4iCBcBjPvsAX_8OYikYWQ26WxcHIMhKFE,23145070)",
-        "name": "Japonês",
+        "name": "Japanese",
         "proficiency": "ELEMENTARY"
       },
       {
         "entityUrn": "urn:li:fs_language:(ACoAAB4iCBcBjPvsAX_8OYikYWQ26WxcHIMhKFE,23135832)",
-        "name": "Português",
+        "name": "Portuguese",
         "proficiency": "NATIVE_OR_BILINGUAL"
       }
     ],
