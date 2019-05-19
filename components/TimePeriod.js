@@ -9,7 +9,7 @@ margin: .25rem 1rem 0 0;
 text-align: center;
 font-size: 1.2rem;
 &:first-child {
-  border-bottom: 2px solid ${props => props.theme.shadow};
+  border-bottom: 2px solid ${props => props.theme.primary};
 }
 `;
 

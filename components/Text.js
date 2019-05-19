@@ -20,7 +20,7 @@ font-size: 1.5rem;
 
 export const SubTitle = styled.h2`
 ${props => commonStyles(props)};
-color: ${props => props.theme.primary};
+color: ${props => props.theme.black};
 font-size: 1.2rem;
 `;
 

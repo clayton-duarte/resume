@@ -8,6 +8,7 @@ const theme = {
   white: "#fefefe",
   shadow: "rgba(0,0,0,0.25)",
   bg: "#fafafa",
+  border: false,
   // SHAPES
   rem: "16px",
   gut: ".5rem",

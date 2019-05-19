@@ -2,29 +2,38 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-const Icon = styled.img`
-filter: drop-shadow(0 0 .25rem ${props => props.theme.shadow});
-max-height: 2rem;
+import LogoLinkedin from 'react-ionicons/lib/LogoLinkedin';
+import LogoGithub from 'react-ionicons/lib/LogoGithub';
+import LogoNodejs from 'react-ionicons/lib/LogoNodejs';
+
+const IconLink = styled.a`
 margin: 1rem;
-height: auto;
-width: 4rem;
+svg {
+  fill: ${props => props.theme.primary};
+}
 `;
 
 const Social = () => (
   <>
     <Link href="https://linkedin.com/in/clayton-duarte">
       <a target="_blank">
-        <Icon alt="linkedin" src="static/linkedin.svg" />
+        <IconLink>
+          <LogoLinkedin fontSize="2rem" />
+        </IconLink>
       </a>
     </Link>
     <Link href="https://github.com/clayton-duarte">
       <a target="_blank">
-        <Icon alt="github" src="static/github.svg" />
+        <IconLink>
+          <LogoGithub fontSize="2rem" />
+        </IconLink>
       </a>
     </Link>
     <Link href="https://www.npmjs.com/~clayton-duarte">
       <a target="_blank">
-        <Icon alt="npm" src="static/npm.svg" />
+        <IconLink>
+          <LogoNodejs fontSize="2rem" />
+        </IconLink>
       </a>
     </Link>
   </>

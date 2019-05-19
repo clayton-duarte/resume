@@ -1,8 +1,13 @@
 import React, { memo, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import MdColorPalette from 'react-ionicons/lib/MdColorPalette';
+
 import { Row, Col } from './Grid';
 import { useStateValue } from '../state';
+import twitterTheme from '../theme/twitter';
+import discordTheme from '../theme/discord';
+import googleTheme from '../theme/google';
 import defaultTheme from '../theme';
 
 const Corner = styled.button`
@@ -27,19 +32,21 @@ aside {
 }
 `;
 
-const Icon = styled.img`
+const Icon = styled.div`
 pointer-events: none;
 position: fixed;
 cursor: pointer;
 right: .25rem;
 top: .25rem;
-height: auto;
-width: 3rem;
 `;
 
 const Palette = styled.aside`
 border: 2px solid ${props => props.theme.white};
-background: ${props => props.theme.primary};
+background: linear-gradient(
+  135deg, 
+  ${props => props.theme.primary} 50%, 
+  ${props => props.theme.secondary} 50%
+);
 box-sizing: border-box;
 border-radius: 1.5rem;
 color: transparent;
@@ -48,15 +55,10 @@ height: 3rem;
 width: 3rem;
 `;
 
-const themes = [
-defaultTheme, // default
-{ ...defaultTheme, primary: 'tomato' },
-{ ...defaultTheme, primary: 'blue' },
-{ ...defaultTheme, primary: 'red' },
-];
+const themes = [defaultTheme, googleTheme, twitterTheme, discordTheme];
 
 const ThemeSelector = () => {
-  const [{ theme }, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
   const [selected = 0, setSelected] = useState();
   const [open, setOpen] = useState();
 
@@ -79,13 +81,15 @@ const ThemeSelector = () => {
         <Row>
           <Col css="flex-grow:0;margin-top:6.5rem;">
             {themes.map((theme, index) => (
-              index !== selected && 
-                <Palette theme={theme} onClick={() => changeTheme(index)} />
+              index !== selected &&
+              <Palette theme={theme} onClick={() => changeTheme(index)} />
             ))}
           </Col>
         </Row>
       </Corner>
-      <Icon open={open} alt="palette" src="static/palette.svg" />
+      <Icon>
+        <MdColorPalette color="white" fontSize="3rem" />
+      </Icon>
     </>
   );
 };
