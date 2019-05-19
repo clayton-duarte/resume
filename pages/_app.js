@@ -1,6 +1,7 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { CookiesProvider } from 'react-cookie';
 
 import { StateProvider, useStateValue } from '../state';
 import initialState from '../state/initialState';
@@ -64,14 +65,16 @@ export default class extends App {
 
     return (
       <StateProvider initialState={{ theme: defaultTheme, ...initialState }} reducer={reducer}>
-        <ThemedApplication>
-          <>
-            <Container>
-              <Component {...pageProps} />
-            </Container>
-            <GlobalStyle />
-          </>
-        </ThemedApplication>
+        <CookiesProvider>
+          <ThemedApplication>
+            <>
+              <Container>
+                <Component {...pageProps} />
+              </Container>
+              <GlobalStyle />
+            </>
+          </ThemedApplication>
+        </CookiesProvider>
       </StateProvider>
     )
   }

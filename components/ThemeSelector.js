@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from 'react';
-import styled from 'styled-components';
-
 import MdColorPalette from 'react-ionicons/lib/MdColorPalette';
+import { useCookies } from 'react-cookie';
+import styled from 'styled-components';
 
 import { Row, Col } from './Grid';
 import { useStateValue } from '../state';
@@ -58,22 +58,20 @@ width: 3rem;
 const themes = [defaultTheme, googleTheme, twitterTheme, discordTheme];
 
 const ThemeSelector = () => {
+  const [cookies, setCookie] = useCookies(['theme']);
   const [, dispatch] = useStateValue();
-  const [selected = 0, setSelected] = useState();
   const [open, setOpen] = useState();
 
   const changeTheme = (themeId) => {
-    dispatch({
-      type: 'changeTheme',
-      payload: themes[themeId],
-    });
-    setTimeout(() => setSelected(themeId), 300);
+    dispatch({ type: 'changeTheme', payload: themes[themeId] });
+    setTimeout(() => setCookie('theme', themeId, { path: '/' }), 300);
     setOpen(false);
-  }
+  };
 
   useEffect(() => {
-    document.title = open;
-  });
+    if (cookies.theme) return changeTheme(cookies.theme);
+    return changeTheme(0);
+  }, []);
 
   return (
     <>
@@ -81,7 +79,7 @@ const ThemeSelector = () => {
         <Row>
           <Col css="flex-grow:0;margin-top:6.5rem;">
             {themes.map((theme, index) => (
-              index !== selected &&
+              index !== Number(cookies.theme) &&
               <Palette theme={theme} onClick={() => changeTheme(index)} />
             ))}
           </Col>

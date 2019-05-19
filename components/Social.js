@@ -6,7 +6,7 @@ import LogoLinkedin from 'react-ionicons/lib/LogoLinkedin';
 import LogoGithub from 'react-ionicons/lib/LogoGithub';
 import LogoNodejs from 'react-ionicons/lib/LogoNodejs';
 
-const IconLink = styled.a`
+const IconLink = styled.div`
 margin: 1rem;
 svg {
   fill: ${props => props.theme.primary};
