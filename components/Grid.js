@@ -17,8 +17,14 @@ export const Row = styled.div`
 ${props => commonStyles(props)};
 padding: 0 ${props => props.theme.gut};
 flex-wrap: wrap;
+> div {
+  flex-basis: auto;
+}
 @media all and (min-width: ${({ theme, bp }) => bp ? theme.bp[bp] : 0}) {
   flex-direction: row;
+  > div {
+    flex-basis: 0;
+  }
 }
 `;
 
