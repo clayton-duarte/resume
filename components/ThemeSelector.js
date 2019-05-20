@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { Row, Col } from './Grid';
 import { useStateValue } from '../state';
-import twitterTheme from '../theme/twitter';
+import bootstrapTheme from '../theme/twitter';
 import discordTheme from '../theme/discord';
 import googleTheme from '../theme/google';
 import defaultTheme from '../theme';
@@ -32,7 +32,7 @@ aside {
 }
 `;
 
-const Icon = styled.div`
+const IconWrapper = styled.div`
 pointer-events: none;
 position: fixed;
 cursor: pointer;
@@ -55,22 +55,25 @@ height: 3rem;
 width: 3rem;
 `;
 
-const themes = [defaultTheme, googleTheme, twitterTheme, discordTheme];
+const themes = { defaultTheme, googleTheme, bootstrapTheme, discordTheme };
+const themeList = Object.keys(themes);
 
 const ThemeSelector = () => {
   const [cookies, setCookie] = useCookies(['theme']);
   const [, dispatch] = useStateValue();
-  const [open, setOpen] = useState();
+  const [selected, setSelected] = useState('defaultTheme');
+  const [open, setOpen] = useState(false);
 
-  const changeTheme = (themeId) => {
-    dispatch({ type: 'changeTheme', payload: themes[themeId] });
-    setTimeout(() => setCookie('theme', themeId, { path: '/' }), 300);
+  const changeTheme = (themeName = 'defaultTheme') => {
+    dispatch({ type: 'changeTheme', payload: themes[themeName] });
+    setTimeout(() => setSelected(themeName), 300);
+    setCookie('theme', themeName, { path: '/' });
     setOpen(false);
   };
 
   useEffect(() => {
     if (cookies.theme) return changeTheme(cookies.theme);
-    return changeTheme(0);
+    return changeTheme();
   }, []);
 
   return (
@@ -78,18 +81,23 @@ const ThemeSelector = () => {
       <Corner open={open} onClick={() => setOpen(!open)} onBlur={() => setOpen(false)}>
         <Row>
           <Col css="flex-grow:0;margin-top:6.5rem;">
-            {themes.map((theme, index) => (
-              index !== Number(cookies.theme) &&
-              <Palette theme={theme} onClick={() => changeTheme(index)} />
+            {themeList.map((theme, index) => (
+              (theme !== selected) &&
+              <Palette
+                key={`theme-selector-${index}`}
+                onClick={() => changeTheme(theme)}
+                title={theme.replace('Theme', '')}
+                theme={themes[theme]}
+              />
             ))}
           </Col>
         </Row>
       </Corner>
-      <Icon>
+      <IconWrapper>
         <MdColorPalette color="white" fontSize="3rem" />
-      </Icon>
+      </IconWrapper>
     </>
   );
 };
 
-export default memo(ThemeSelector);
+export default ThemeSelector;
