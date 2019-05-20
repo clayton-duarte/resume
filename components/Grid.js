@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const commonStyles = () => `
 flex-direction: column;
+position: relative;
 display: flex;
 `
 

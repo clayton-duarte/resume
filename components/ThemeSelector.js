@@ -5,16 +5,16 @@ import styled from 'styled-components';
 
 import { Row, Col } from './Grid';
 import { useStateValue } from '../state';
-import bootstrapTheme from '../theme/twitter';
-import discordTheme from '../theme/discord';
-import googleTheme from '../theme/google';
-import defaultTheme from '../theme';
+import twitterBootstrap from '../theme/twitter';
+import googleSearch from '../theme/google';
+import discord from '../theme/discord';
+import whiteLabel from '../theme';
 
 const Corner = styled.button`
 filter: drop-shadow(0 0 .25rem ${props => props.theme.shadow});
 right: ${props => props.open ? '-14.5rem' : '-18rem'};
 top: ${props => props.open ? '-14.5rem' : '-18rem'};
-background: ${props => props.theme.primary};
+background: ${props => props.theme.secondary};
 transform: rotate(-45deg);
 flex-direction: column;
 position: fixed;
@@ -24,6 +24,7 @@ border: unset;
 display: flex;
 height: 25rem;
 width: 25rem;
+z-index: 1;
 aside {
   transform: scale(${props => props.open ? 1 : 0});
   &:hover {
@@ -38,6 +39,7 @@ position: fixed;
 cursor: pointer;
 right: .25rem;
 top: .25rem;
+z-index: 1;
 `;
 
 const Palette = styled.aside`
@@ -53,18 +55,35 @@ color: transparent;
 margin: .5rem 0;
 height: 3rem;
 width: 3rem;
+z-index: 1;
 `;
 
-const themes = { defaultTheme, googleTheme, bootstrapTheme, discordTheme };
-const themeList = Object.keys(themes);
+const CornerLabel = styled.p`
+transform-origin: top left;
+transform: rotate(90deg);
+pointer-events: none;
+margin-bottom: 1rem;
+position: absolute;
+font-weight: bold;
+margin: 0 1rem;
+width: inherit;
+color: white;
+z-index: 0;
+left: 0;
+`;
 
+const themes = { whiteLabel, googleSearch, twitterBootstrap, discord };
+
+const themeList = Object.keys(themes);
 const ThemeSelector = () => {
   const [cookies, setCookie] = useCookies(['theme']);
   const [, dispatch] = useStateValue();
-  const [selected, setSelected] = useState('defaultTheme');
+  const [selected, setSelected] = useState('whiteLabel');
   const [open, setOpen] = useState(false);
 
-  const changeTheme = (themeName = 'defaultTheme') => {
+  const humanizeThemeName = camel => camel.split(/(?=[A-Z])/g).join(' ').toLowerCase();
+
+  const changeTheme = (themeName = 'whiteLabel') => {
     dispatch({ type: 'changeTheme', payload: themes[themeName] });
     setTimeout(() => setSelected(themeName), 300);
     setCookie('theme', themeName, { path: '/' });
@@ -80,18 +99,19 @@ const ThemeSelector = () => {
     <>
       <Corner open={open} onClick={() => setOpen(!open)} onBlur={() => setOpen(false)}>
         <Row>
-          <Col css="flex-grow:0;margin-top:6.5rem;">
+          <Col css="margin-top:6.5rem;">
             {themeList.map((theme, index) => (
               (theme !== selected) &&
               <Palette
                 key={`theme-selector-${index}`}
                 onClick={() => changeTheme(theme)}
-                title={theme.replace('Theme', '')}
+                title={humanizeThemeName(theme)}
                 theme={themes[theme]}
               />
             ))}
           </Col>
         </Row>
+        <CornerLabel>{humanizeThemeName(selected)}</CornerLabel>
       </Corner>
       <IconWrapper>
         <MdColorPalette color="white" fontSize="3rem" />
