@@ -10,20 +10,24 @@ import googleSearch from '../theme/google';
 import discord from '../theme/discord';
 import whiteLabel from '../theme';
 
+const cornerSize = Math.sqrt(2) * 15;
+const close = (-cornerSize / 1.5);
+const open = (-cornerSize / 2);
+
 const Corner = styled.button`
 filter: drop-shadow(0 0 .25rem ${props => props.theme.shadow});
-right: ${props => props.open ? '-14.5rem' : '-18rem'};
-top: ${props => props.open ? '-14.5rem' : '-18rem'};
+right: ${props => props.open ? open : close}rem;
+top: ${props => props.open ? open : close}rem;
 background: ${props => props.theme.secondary};
 transform: rotate(-45deg);
 flex-direction: column;
+height: ${cornerSize}rem;
+width: ${cornerSize}rem;
 position: fixed;
 cursor: pointer;
 outline: unset;
 border: unset;
 display: flex;
-height: 25rem;
-width: 25rem;
 z-index: 1;
 aside {
   transform: scale(${props => props.open ? 1 : 0});
@@ -37,8 +41,8 @@ const IconWrapper = styled.div`
 pointer-events: none;
 position: fixed;
 cursor: pointer;
-right: .25rem;
-top: .25rem;
+right: .5rem;
+top: .5rem;
 z-index: 1;
 `;
 
@@ -98,8 +102,8 @@ const ThemeSelector = () => {
   return (
     <>
       <Corner open={open} onClick={() => setOpen(!open)} onBlur={() => setOpen(false)}>
-        <Row>
-          <Col css="margin-top:6.5rem;">
+        <Row css="flex-grow: 1;">
+          <Col css="justify-content: center;">
             {themeList.map((theme, index) => (
               (theme !== selected) &&
               <Palette
