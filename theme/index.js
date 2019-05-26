@@ -2,12 +2,12 @@ const theme = {
   // FONT
   family: "Courier",
   // COLORS
-  primary: "#35A7FF",
-  secondary: "#FFAF3F",
-  black: "#38618C",
+  primary: "#333338",
+  secondary: "#44444A",
+  black: "#222225",
   white: "#FFFFFF",
   shadow: "rgba(0,0,0,0)",
-  bg: "#F2F2F2",
+  bg: "#F2F2F5",
   border: true,
   // SHAPES
   rem: "16px",

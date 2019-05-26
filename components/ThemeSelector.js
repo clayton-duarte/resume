@@ -8,7 +8,7 @@ import { useStateValue } from '../state';
 import twitterBootstrap from '../theme/twitter';
 import googleSearch from '../theme/google';
 import discord from '../theme/discord';
-import defaultTheme from '../theme';
+import monochrome from '../theme';
 
 const cornerSize = Math.sqrt(2) * 15;
 const close = (-cornerSize / 1.5);
@@ -76,18 +76,18 @@ z-index: 0;
 left: 0;
 `;
 
-const themes = { defaultTheme, googleSearch, twitterBootstrap, discord };
+const themes = { monochrome, googleSearch, twitterBootstrap, discord };
 
 const themeList = Object.keys(themes);
 const ThemeSelector = () => {
   const [cookies, setCookie] = useCookies(['theme']);
   const [, dispatch] = useStateValue();
-  const [selected, setSelected] = useState('defaultTheme');
+  const [selected, setSelected] = useState('monochrome');
   const [open, setOpen] = useState(false);
 
   const humanizeThemeName = camel => camel.split(/(?=[A-Z])/g).join(' ').toLowerCase();
 
-  const changeTheme = (themeName = 'defaultTheme') => {
+  const changeTheme = (themeName = 'monochrome') => {
     dispatch({ type: 'changeTheme', payload: themes[themeName] });
     setTimeout(() => setSelected(themeName), 300);
     setCookie('theme', themeName, { path: '/' });
