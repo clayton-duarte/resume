@@ -21,7 +21,7 @@ const Home = () => {
 
       <Container>
         <Row bp="sm" css={`@media all and (min-width: ${({ theme }) => theme.bp.sm}) {align-items:flex-end;}`}>
-          <Col>
+          <Col css="margin-right: 3rem;">
             <Summary />
           </Col>
           <Col>
@@ -42,7 +42,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-      
+
       <Container>
         <Row bp="sm">
           <Col>

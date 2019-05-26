@@ -31,7 +31,7 @@ body {
       ${props => props.theme.shadow},
       transparent
     );
-    margin: ${props => props.theme.gut}; 1rem;
+    margin: ${props => props.theme.gut};
     height: 1px;
   }
 }
