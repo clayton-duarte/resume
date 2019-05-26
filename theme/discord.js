@@ -7,6 +7,7 @@ const theme = {
   bg: '#2c2f33',
   white: '#23272a',
   shadow: 'transparent',
+  border: false,
   radius: '0',
 };
 
